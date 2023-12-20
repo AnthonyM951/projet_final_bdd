@@ -37,6 +37,11 @@ fastAPI donne la posisbilité d'accéder à une documentation générée automat
 
 ![img.png](utils/imgFast.png)
 
+### Postman
+![img.png](utils/imgDoc.png)
+
+### Endpoints
+
 #### Liste des Pays
 
 - Endpoint : `GET /api/onu/postgresql/getcountries/`
