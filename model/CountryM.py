@@ -6,75 +6,77 @@ class Country :
         self.__population: int = None
         self.__area: int = None
 
-    def setCountryId(self, countryId : int) -> None:
+    def setCountryId(self, countryId: int) -> None:
         '''
-        la méthode qui permet d'insérer une valeur dans l'attribut brandId
-        :param brandId: l'identifiant de la marque
+        La méthode qui permet d'insérer une valeur dans l'attribut countryId.
+        :param countryId: l'identifiant du pays.
         :return: rien
         '''
         self.__country_id = countryId
+
     def getCountryId(self) -> int:
         '''
-        cette méthode permet de retourner l'identifiant d'une marque
-        :return: l'id d'une marque
+        Cette méthode permet de retourner l'identifiant d'un pays.
+        :return: l'id d'un pays.
         '''
         return self.__country_id
 
-
-    def setCountry_name(self, country_name : str) -> None:
+    def setCountryName(self, countryName: str) -> None:
         '''
-        la méthode qui permet d'insérer une valeur dans l'attribut brandId
-        :param brandId: l'identifiant de la marque
+        La méthode qui permet d'insérer une valeur dans l'attribut countryName.
+        :param countryName: le nom du pays.
         :return: rien
         '''
-        self.__country_name = country_name
-    def getCountry_name(self) -> str:
+        self.__country_name = countryName
+
+    def getCountryName(self) -> str:
         '''
-        cette méthode permet de retourner l'identifiant d'une marque
-        :return: l'id d'une marque
+        Cette méthode permet de retourner le nom du pays.
+        :return: le nom du pays.
         '''
         return self.__country_name
 
-
-    def setCapital(self,  capital : str) -> None:
+    def setCapital(self, capital: str) -> None:
         '''
-        la méthode qui permet d'insérer une valeur dans l'attribut brandId
-        :param brandId: l'identifiant de la marque
+        La méthode qui permet d'insérer une valeur dans l'attribut capital.
+        :param capital: le nom de la capitale.
         :return: rien
         '''
         self.__capital = capital
+
     def getCapital(self) -> str:
         '''
-        cette méthode permet de retourner l'identifiant d'une marque
-        :return: l'id d'une marque
+        Cette méthode permet de retourner le nom de la capitale.
+        :return: le nom de la capitale.
         '''
         return self.__capital
 
-    def setPopulation(self, population : int) -> None:
+    def setPopulation(self, population: int) -> None:
         '''
-        la méthode qui permet d'insérer une valeur dans l'attribut brandId
-        :param brandId: l'identifiant de la marque
+        La méthode qui permet d'insérer une valeur dans l'attribut population.
+        :param population: la population du pays.
         :return: rien
         '''
         self.__population = population
+
     def getPopulation(self) -> int:
         '''
-        cette méthode permet de retourner l'identifiant d'une marque
-        :return: l'id d'une marque
+        Cette méthode permet de retourner la population du pays.
+        :return: la population du pays.
         '''
         return self.__population
 
-    def setArea(self, area : int) -> None:
+    def setArea(self, area: int) -> None:
         '''
-        la méthode qui permet d'insérer une valeur dans l'attribut brandId
-        :param brandId: l'identifiant de la marque
+        La méthode qui permet d'insérer une valeur dans l'attribut area.
+        :param area: la superficie du pays.
         :return: rien
         '''
         self.__area = area
+
     def getArea(self) -> int:
         '''
-        cette méthode permet de retourner l'identifiant d'une marque
-        :return: l'id d'une marque
+        Cette méthode permet de retourner la superficie du pays.
+        :return: la superficie du pays.
         '''
         return self.__area
-    

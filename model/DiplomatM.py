@@ -7,20 +7,47 @@ class Diplomat:
         self.__country_id: Country = None
         
 
-    def set_diplomat_id(self, diplomat_id):
-        self.__diplomat_id = diplomat_id
+    def setDiplomatId(self, diplomatId):
+        '''
+        Méthode pour définir l'identifiant du diplomate.
+        :param diplomatId: L'identifiant du diplomate.
+        :return: Aucun.
+        '''
+        self.__diplomat_id = diplomatId
 
-    def get_diplomat_id(self):
+    def getDiplomatId(self):
+        '''
+        Méthode pour obtenir l'identifiant du diplomate.
+        :return: L'identifiant du diplomate.
+        '''
         return self.__diplomat_id
 
-    def set_diplomat_name(self, diplomat_name):
-        self.__diplomat_name = diplomat_name
+    def setDiplomatName(self, diplomatName):
+        '''
+        Méthode pour définir le nom du diplomate.
+        :param diplomatName: Le nom du diplomate.
+        :return: Aucun.
+        '''
+        self.__diplomat_name = diplomatName
 
-    def get_diplomat_name(self):
+    def getDiplomatName(self):
+        '''
+        Méthode pour obtenir le nom du diplomate.
+        :return: Le nom du diplomate.
+        '''
         return self.__diplomat_name
 
-    def set_Diplomatcountry(self, country_id:Country):
-        self.__country_id = country_id
+    def setDiplomatCountry(self, countryId: Country):
+        '''
+        Méthode pour définir le pays du diplomate.
+        :param countryId: Objet de type Country représentant le pays du diplomate.
+        :return: Aucun.
+        '''
+        self.__country_id = countryId
 
-    def get_Diplomatcountry(self):
+    def getDiplomatCountry(self):
+        '''
+        Méthode pour obtenir le pays du diplomate.
+        :return: Objet de type Country représentant le pays du diplomate.
+        '''
         return self.__country_id

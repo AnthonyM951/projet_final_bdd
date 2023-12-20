@@ -16,7 +16,7 @@ Les principaux objectifs de ce projet étaient les suivants :
 
 ## Technologies utilisées
 
-- Base de données PostgreSQL en local (ou supabase)
+- Base de données PostgreSQL en local
 - Python avec le modèle de conception DAO
 - Frameworks d'API : Nous avons choisi FastAPI
 - Génération de documentation avec Read the Docs

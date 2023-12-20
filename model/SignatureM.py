@@ -109,9 +109,9 @@ class Signature:
 
     def getDescription(self) -> str:
         '''
-        Cette méthode permet de retourner la description du flux de marchandises.
+        Cette méthode permet de retourner la description.
 
-        :return: La description du flux de marchandises.
+        :return: La description.
         '''
         return self.__description
 

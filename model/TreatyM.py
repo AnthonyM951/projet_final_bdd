@@ -7,87 +7,94 @@ class Treaty :
         self.__name: str = ""
         
 
-    def setTreatyId(self, treatyId : int) -> None:
+    def setTreatyId(self, treatyId: int) -> None:
         '''
-        la méthode qui permet d'insérer une valeur dans l'attribut brandId
-        :param brandId: l'identifiant de la marque
-        :return: rien
+        Méthode pour définir l'identifiant du traité.
+        :param treatyId: L'identifiant du traité.
+        :return: Aucun.
         '''
         self.__treatyId = treatyId
+
     def getTreatyId(self) -> int:
         '''
-        cette méthode permet de retourner l'identifiant d'une marque
-        :return: l'id d'une marque
+        Méthode pour obtenir l'identifiant du traité.
+        :return: L'identifiant du traité.
         '''
         return self.__treatyId
 
-    def setName(self, name : int) -> None:
+    def setName(self, name: str) -> None:
         '''
-        la méthode qui permet d'insérer une valeur dans l'attribut brandId
-        :param brandId: l'identifiant de la marque
-        :return: rien
+        Méthode pour définir le nom du traité.
+        :param name: Le nom du traité.
+        :return: Aucun.
         '''
         self.__name = name
+
     def getName(self) -> str:
         '''
-        cette méthode permet de retourner l'identifiant d'une marque
-        :return: l'id d'une marque
+        Méthode pour obtenir le nom du traité.
+        :return: Le nom du traité.
         '''
         return self.__name
 
-    def setDate(self, date : datetime) -> None:
+    def setDate(self, date: datetime) -> None:
         '''
-        la méthode qui permet d'insérer une valeur dans l'attribut brandId
-        :param brandId: l'identifiant de la marque
-        :return: rien
+        Méthode pour définir la date du traité.
+        :param date: La date du traité.
+        :return: Aucun.
         '''
         self.__date = date
+
     def getDate(self) -> datetime:
         '''
-        cette méthode permet de retourner l'identifiant d'une marque
-        :return: l'id d'une marque
+        Méthode pour obtenir la date du traité.
+        :return: La date du traité.
         '''
         return self.__date
 
-    def setparticipantOne(self, participantOne : Country) -> None:
+    def setParticipantOne(self, participantOne: Country) -> None:
         '''
-        la méthode qui permet d'insérer une valeur dans l'attribut brandId
-        :param participantOne: l'identifiant du participantOne
-        :return: rien
+        Méthode pour définir le participant One du traité.
+        :param participantOne: Objet de type Country représentant le participant One.
+        :return: Aucun.
         '''
         self.__participantOne = participantOne
-    def getparticipantOne(self) -> Country:
+
+    def getParticipantOne(self) -> Country:
         '''
-        cette méthode permet de retourner l'identifiant d'une marque
-        :return: l'id d'une marque
+        Méthode pour obtenir le participant One du traité.
+        :return: Objet de type Country représentant le participant One.
         '''
         return self.__participantOne
-    
-    def setparticipantTwo(self, participantTwo : Country) -> None:
+
+    def setParticipantTwo(self, participantTwo: Country) -> None:
         '''
-        la méthode qui permet d'insérer une valeur dans l'attribut participantTwo
-        :param participantTwo: l'identifiant du participantTwo
-        :return: rien
+        Méthode pour définir le participant Two du traité.
+        :param participantTwo: Objet de type Country représentant le participant Two.
+        :return: Aucun.
         '''
         self.__participantTwo = participantTwo
-    def getparticipantTwo(self) -> Country:
+
+    def getParticipantTwo(self) -> Country:
         '''
-        cette méthode permet de retourner l'identifiant du participantTwo
-        :return: l'id du participantTwo
+        Méthode pour obtenir le participant Two du traité.
+        :return: Objet de type Country représentant le participant Two.
         '''
         return self.__participantTwo
 
-    def setDescription(self, description : str) -> None:
+    def setDescription(self, description: str) -> None:
         '''
-        la méthode qui permet d'insérer une valeur dans l'attribut brandId
-        :param brandId: l'identifiant de la marque
-        :return: rien
+        Méthode pour définir la description du traité.
+        :param description: La description du traité.
+        :return: Aucun.
         '''
         self.__description = description
+
     def getDescription(self) -> str:
         '''
-        cette méthode permet de retourner l'identifiant d'une marque
-        :return: l'id d'une marque
+        Méthode pour obtenir la description du traité.
+        :return: La description du traité.
         '''
         return self.__description
+
 
