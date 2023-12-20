@@ -6,7 +6,7 @@ class sysadmin(ModelDAO.modeleDAO):
         '''
         Initialise l'objet sysadmin en établissant une connexion à la base de données.
         '''
-        params = ModelDAO.modeleDAO.connect_objet
+        params = ModelDAO.modeleDAO.connect_object
         self.cur = params.cursor()
 
     def insererUn(self, objIns) -> int:

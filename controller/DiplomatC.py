@@ -109,7 +109,7 @@ class DiplomatController:
         return None
 
     @staticmethod
-    def delete_one_treaty(diplomat_id):
+    def delete_one_diplomat(diplomat_id):
         '''
         Delete a treaty.
         @param diplomat_id: ID of the diplomat.
@@ -126,5 +126,29 @@ class DiplomatController:
 
         except Exception as e:
             print(f'Error_DiplomatController.delete_one_diplomat() ::: {e}')
+
+        return None
+
+    @staticmethod
+    def search_product_by_name(keyword) -> list[Diplomat]|str:
+        """
+        Rechercher des diplomat par nom.
+        @param keyword: Mot-clé de recherche.
+        @return: Liste des produits correspondant à la recherche au format JSON.
+        """
+        try:
+
+            diplomatDAO = DiplomatDAO()
+
+            listDiplomat: list[Diplomat] = diplomatDAO.searchPleinText(keyword)
+
+            if listDiplomat == None:
+                return "ERROR"
+
+            return listDiplomat
+
+        except Exception as e:
+
+            print(f"Erreur_DiplomatC.search_product_by_name() ::: {e}")
 
         return None

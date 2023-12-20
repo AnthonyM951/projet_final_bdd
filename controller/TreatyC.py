@@ -118,3 +118,4 @@ class TreatyController:
             print(f'Error_TreatyController.delete_one_treaty() ::: {e}')
 
         return None
+

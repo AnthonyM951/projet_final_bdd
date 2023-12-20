@@ -2,7 +2,7 @@ from dao import ModelDAO
 from model.DiplomatM import Diplomat
 from model.CountryM import Country
 
-class DiplomatDAO(ModelDAO.ModelDAO):
+class DiplomatDAO(ModelDAO.modeleDAO):
 
     def __init__(self):
         '''
@@ -19,7 +19,7 @@ class DiplomatDAO(ModelDAO.ModelDAO):
         :return: The number of affected rows.
         '''
         try:
-            sql = "INSERT INTO Diplomat (diplomatName, countryId) VALUES (%s, %s) RETURNING diplomatId;"
+            sql = "INSERT INTO bdd_projet_final.Diplomat (diplomatName, countryId) VALUES (%s, %s) RETURNING diplomatId;"
             data = (obj_ins.get_diplomat_name(), obj_ins.get_Diplomatcountry().getCountryId())
 
             with self.connection.cursor() as cursor:
@@ -221,8 +221,41 @@ class DiplomatDAO(ModelDAO.ModelDAO):
         pass
 
     
-    def searchPleinText(self)->list:
-        pass
+    def searchPleinText(self, keyword: str) -> list[Diplomat]:
+        """
+        Rechercher des diplomates par texte intégral.
+        :param keyword: Mot-clé pour la recherche.
+        :return: Liste des diplomates correspondants.
+        """
+        try:
+            query = '''
+                SELECT diplomatid, diplomatname, countryid
+                FROM bdd_projet_final.Diplomat
+                WHERE to_tsvector('french', diplomatname) @@ to_tsquery('french', %s);
+            '''
+            self.cur.execute(query, (keyword+':*',))
+            result = self.cur.fetchall()
+
+            diplomat_list = []
+
+            for row in result:
+                diplomat = Diplomat()
+                diplomat.set_diplomat_id(row[0])
+                diplomat.set_diplomat_name(row[1])
+                diplomat.set_Diplomatcountry(row[2])
+                # Add other attributes as needed
+
+                diplomat_list.append(diplomat)
+
+            return diplomat_list
+
+        except Exception as e:
+            print(f"Error in DiplomatDAO.searchPleinText: {e}")
+            return []
+
+        finally:
+            self.cur.close()
+
 
     # SEANCE 6 :
     # 1.    User/Rôles

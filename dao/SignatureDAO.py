@@ -19,10 +19,10 @@ class SignatureDAO(ModelDAO.modeleDAO):
         :return: The number of affected rows.
         '''
         try:
-            query = '''INSERT INTO bdd_projet_final.signature (signature_id, treatyId, countryOne, countryTwo, year, description,status) 
+            query = '''INSERT INTO bdd_projet_final.signature (signature_id, treatyId, countryOne, countryTwo, date_, description,status) 
                        VALUES (%s,%s, %s, %s, %s, %s,%s);'''
             self.cur.execute(query, (obj_ins.getSignatureId(), obj_ins.getTreatyId().getTreatyId(), obj_ins.getCountryOne().getCountryId(), obj_ins.getCountryTwo().getCountryId(),
-                                     obj_ins.getYear(), obj_ins.getDescription(),obj_ins.getStatus))
+                                     obj_ins.getDate(), obj_ins.getDescription(),obj_ins.getStatus))
             self.cur.connection.commit()
             return self.cur.rowcount if self.cur.rowcount != 0 else 0
         except Exception as e:
@@ -49,7 +49,7 @@ class SignatureDAO(ModelDAO.modeleDAO):
                 signature.setTreatyId(res[1])
                 signature.setCountryOne(res[2])
                 signature.setCountryTwo(res[3])
-                signature.setYear(res[4])
+                signature.setDate(res[4])
                 signature.setDescription(res[5])
                 signature.setStatus(res[6])
 
@@ -81,7 +81,7 @@ class SignatureDAO(ModelDAO.modeleDAO):
                     signature.setTreatyId(res[1])
                     signature.setCountryOne(res[2])
                     signature.setCountryTwo(res[3])
-                    signature.setYear(res[4])
+                    signature.setDate(res[4])
                     signature.setDescription(res[5])
                     signature.setStatus(res[6])
 
@@ -108,12 +108,12 @@ class SignatureDAO(ModelDAO.modeleDAO):
                        treatyId= %s,
                        country_from = %s, 
                        country_to = %s, 
-                       year = %s, 
+                       date_ = %s, 
                        description = %s,
                        status= %s, 
                        WHERE signature_id = %s;'''
             self.cur.execute(query, (obj_modify.getTreatyId().getTreatyId(),obj_modify.getCountryOne().getCountryId(), obj_modify.getCountryTwo().getCountryId(),
-                                     obj_modify.getYear(), obj_modify.getDescription(),obj_modify.getStatus(), key_to_modify))
+                                     obj_modify.getDate(), obj_modify.getDescription(),obj_modify.getStatus(), key_to_modify))
             self.cur.connection.commit()
             return self.cur.rowcount if self.cur.rowcount != 0 else 0
         except Exception as e:
@@ -139,8 +139,61 @@ class SignatureDAO(ModelDAO.modeleDAO):
             self.cur.connection.rollback()
         finally:
             self.cur.close()
-    
 
+    def sortSignatureByDate(self) -> list[Signature]:
+        '''
+        Trie les signatures par date.
+
+        :return: Une liste de signatures triées.
+        '''
+        try:
+            query = '''SELECT treatyId, countryOne, countryTwo, date_, description, status, RANK() OVER (ORDER BY date_)
+                        FROM bdd_projet_final.signature;'''
+            self.cur.execute(query)
+            res = self.cur.fetchall()
+
+            liste_signatures = []
+
+            if len(res) > 0:
+                for r in res:
+                    signature = Signature()
+                    signature.setTreatyId(r[0])
+                    signature.setCountryOne(r[1])
+                    signature.setCountryTwo(r[2])
+                    signature.setDate(r[3])
+                    signature.setDescription(r[4])
+                    signature.setStatus(r[5])
+                    signature.setSignatureId(r[6])
+                    liste_signatures.append(signature)
+
+                return liste_signatures
+
+            else:
+                return None
+
+        except Exception as e:
+            print(f"Erreur_SignatureDAO.sortSignatureByDate() ::: {e}")
+        finally:
+            self.cur.close()
+    def get_status_by_signature(self, signature_id: int) -> str | None:
+        """
+        Get the status by signature.
+        @param signature_id: Signature ID.
+        @return: Status of the signature.
+        """
+        try:
+            query = f'SELECT status FROM bdd_projet_final.signature WHERE signatureid = {signature_id};'
+            self.cur.execute(query)
+            result = self.cur.fetchone()
+
+            if result:
+                return result[0]  # Assuming status is in the first column
+
+            return None
+
+        except Exception as e:
+            print(f"Error_SignatureDAO.get_status_by_signature() ::: {e}")
+            return None
     # Add other methods as needed
 
 

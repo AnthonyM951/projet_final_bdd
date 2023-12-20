@@ -43,7 +43,7 @@ class SysAdmin:
             if sys==0 :
                 return "ERROR"
 
-            return "CREATION D'UN NOUVEAU USER AVEC SUCCES"
+            return "CREATION D'UN NOUVEAU ROLE AVEC SUCCES"
 
         except Exception as e:
             print(f'Erreur_sysadminC.creerUnRole() ::: {e}')

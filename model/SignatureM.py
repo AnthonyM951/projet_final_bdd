@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import date
 from model.CountryM import Country
 from model.TreatyM import Treaty
 class Signature:
@@ -7,7 +7,7 @@ class Signature:
         self.__treatyId: Treaty 
         self.__countryOne: Country = None
         self.__countryTwo: Country = None
-        self.__year: int = None
+        self.__date: date = None
         self.__description: str = ""
         self.__status: str = ""
 
@@ -81,22 +81,22 @@ class Signature:
         return self.__countryTwo
 
 
-    def setYear(self, year: int) -> None:
+    def setDate(self, date: date) -> None:
         '''
         La méthode qui permet d'insérer une valeur dans l'attribut year.
 
         :param year: L'année de signature.
         :return: Rien.
         '''
-        self.__year = year
+        self.__date = date
 
-    def getYear(self) -> int:
+    def getDate(self) -> int:
         '''
         Cette méthode permet de retourner l'année de signature.
 
         :return: L'année de signature.
         '''
-        return self.__year
+        return self.__date
 
     def setDescription(self, description: str) -> None:
         '''

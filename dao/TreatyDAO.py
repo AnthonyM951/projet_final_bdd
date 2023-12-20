@@ -123,6 +123,7 @@ class TreatyDAO(ModelDAO.modeleDAO):
         finally:
             self.cur.close()
 
+ 
     # def filter_by_year(self,year):
     #     '''
     #     Apply a filter to retrieve goods flows based on the provided status.

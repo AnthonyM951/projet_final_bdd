@@ -48,13 +48,14 @@ class SignatureController:
         return None
 
     @staticmethod
-    def add_one_signature(treaty_id, countryOne, countryTwo, year, description,status):
+    def add_one_signature(treaty_id, countryOne, countryTwo, date, description,status):
         '''
         Add a signature.
         @param signature_id: ID of the signature.
         @param treaty_id: ID of the treaty.
         @param countryOne: Country One to sign.
         @param countryTwo: Country two to sign.
+        @param date: Country two to sign.
         @param description: Description of signature.
         @param status: Status of signature.
         @return: Status of adding the signature.
@@ -78,7 +79,7 @@ class SignatureController:
             obj_signature.setCountryTwo(c2)
 
 
-            obj_signature.setYear(year)
+            obj_signature.setDate(date)
             obj_signature.setDescription(description)
             obj_signature.setStatus(status)
 
@@ -95,14 +96,14 @@ class SignatureController:
         return None
 
     @staticmethod
-    def modify_one_signature(signature_id,treatyId, countryOne, countryTwo, year, description,status):
+    def modify_one_signature(signature_id,treatyId, countryOne, countryTwo, date, description,status):
         '''
         Modify a goods flow.
         @param signature_id: ID of the signature.
         @param treatyId: ID of the treaty.
         @param countryOne: First country to sign.
         @param countryTwo: Second country to sign.
-        @param year: New year of signature.
+        @param date: New date of signature.
         @param description: New description of signature.
         @param status: New status of signature.
         @return: Status of modifying the signature.
@@ -120,7 +121,7 @@ class SignatureController:
 
             obj_signature.setCountryOne(c1)
             obj_signature.setCountryTwo(c2)
-            obj_signature.setYear(year)
+            obj_signature.setDate(date)
             obj_signature.setDescription(description)
             obj_signature.setStatus(status)
 
@@ -156,3 +157,39 @@ class SignatureController:
             print(f'Error_SignatureController.delete_one_signature() ::: {e}')
 
         return None
+    @staticmethod
+    def sortSignatureByDate() -> list[Signature] | str:
+        """
+        Trier les signatures par date.
+        @return: Liste des signatures triées au format JSON.
+        """
+        try:
+            signature_dao = SignatureDAO()
+            list_signatures: list[Signature] = signature_dao.sortSignatureByDate()
+
+            if list_signatures is None:
+                return "ERROR"
+
+            return list_signatures
+
+        except Exception as e:
+            print(f"Erreur_SignatureController.sortSignatureByDate() ::: {e}")
+
+        return None
+    
+    @staticmethod
+    def get_status_by_signature(signature_id: int) -> str | None:
+        """
+        Get the status by signature.
+        @param signature_id: Signature ID.
+        @return: Status of the signature.
+        """
+        try:
+            signature_dao = SignatureDAO()
+            status: str | None = signature_dao.get_status_by_signature(signature_id)
+
+            return status
+
+        except Exception as e:
+            print(f'Error_SignatureController.get_status_by_signature() ::: {e}')
+            return None
