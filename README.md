@@ -1,6 +1,7 @@
 # Projet Nations Unies
 
 Documentation brève : [Lien vers la documentation](https://projet-final-bdd.readthedocs.io/fr/latest/index.html)
+Projet réalisé par Ousmane, Cherifa et Anthony
 
 Le Projet Nations Unies est une API conçue pour interagir avec la base de données des Nations Unies, couvrant divers aspects liés aux questions mondiales, à la collaboration et aux efforts diplomatiques.
 
