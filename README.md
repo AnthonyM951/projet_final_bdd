@@ -31,7 +31,11 @@ Pour exécuter l'API localement, suivez ces étapes :
 
 ## Fonctionnalités
 
-### API Flask
+### API Fast
+fastAPI donne la posisbilité d'accéder à une documentation générée automatiquement à partir de ce lien : 
+`http://127.0.0.1:5000/docs`
+
+![img.png](utils/imgFast.png)
 
 #### Liste des Pays
 
