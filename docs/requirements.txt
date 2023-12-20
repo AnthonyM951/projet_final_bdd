@@ -1,6 +1,6 @@
 annotated-types==0.6.0
 anyio==3.7.1
-click @ file:///croot/click_1698129812380/work
+click 
 fastapi==0.104.1
 Flask @ file:///work/ci_py311/flask_1676827140363/work
 Flask-Cors==4.0.0
